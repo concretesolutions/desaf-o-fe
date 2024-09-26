@@ -1,0 +1,12 @@
+<div class="parent">
+    <div class="child">
+        <p class="title"><strong>GITHUB</strong><em>SEARCH</em></p>
+        <div class="inputArea">
+            <input class="input" #input type="search" placeholder="Ingrese usuario de GitHub..." (keyup.enter)="search(input.value)">
+            <button class="button" type="submit" (click)="search(input.value)"></button>
+        </div>
+        <div class="credits">
+            <a href="https://github.com/Sevalas" target="_blank"><p class="name"><em>SEBASTIAN VALENCIA LASPRILLA</em></p></a>
+        </div>
+    </div>
+</div>

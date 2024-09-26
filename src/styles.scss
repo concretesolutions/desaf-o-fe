@@ -1,0 +1,10 @@
+$font-stack: 'Courier New', Courier, monospace;
+
+* {
+  font-family: $font-stack;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}

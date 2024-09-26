@@ -1,0 +1,62 @@
+<div class="header">
+    <a routerLink="/">
+        <p class="title"><strong>GITHUB</strong><em>SEARCH</em></p>
+    </a>
+    <div class="inputWrapper">
+        <div class="input">
+            <input class="search" #input (keyup.enter)="search(input.value)" type="search"
+                placeholder="Ingrese usuario(Nickname)">
+            <button class="button" (click)="search(input.value)" type="submit"></button>
+        </div>
+    </div>
+</div>
+<div *ngIf="showUser === false">
+    <p class="error1">Este usuario no existe :C</p>
+</div>
+<div *ngIf="error403">
+    <p class="error1">Limite de busqueda Excedido, Intentelo mas tarde</p>
+</div>
+<div *ngIf="firstSearch">
+    <p class="error1">Ingrese un usuario de GitHub</p>
+</div>
+<div *ngIf="showUser" class="body">
+    <div class="user">
+        <div *ngIf="showUser">
+            <a href="{{userInfo.html_url}}" target="_blank" class="imgAvatar"><img class="avatar"
+                    src="{{userInfo.avatar_url}}" alt="User avata"></a>
+            <a class="title1" href="{{userInfo.html_url}}" target="_blank">{{userInfo.name}}<span
+                    *ngIf="!userInfo.name"><em>(Sin nombre)</em></span></a>
+            <p class="muted">{{userInfo.login}}</p>
+            <br>
+            <p class="text1"><img class="icon1" src="../../../assets/email-icon.png" alt="email-icon">
+                {{userInfo.email}}<span *ngIf="!userInfo.email" class="muted">Email no disponible</span></p>
+            <p class="text1"><img class="icon1" src="../../../assets/location-icon.png" alt="email-icon"> {{userInfo.location}}<span *ngIf="!userInfo.location" class="muted">Locación no disponible</span></p>
+            <p class="text1"><img class="icon1" src="../../../assets/inbox-icon.png" alt="email-icon"><strong> {{userInfo.public_repos}}</strong> Repositorios</p>
+            <p class="text1"><img class="icon1" src="../../../assets/people-icon.png" alt="email-icon"><strong> {{userInfo.followers}}</strong> Seguidores</p>
+            <p class="text1"><img class="icon1" src="../../../assets/people-icon.png" alt="email-icon"><strong> {{userInfo.following}}</strong> Seguidos</p>
+            <p class="text1"><img class="icon1" src="../../../assets/info-icon.png" alt="info-icon">
+                {{userInfo.bio}}<span *ngIf="!userInfo.bio" class="muted">Bio no disponible</span></p>
+        </div>
+    </div>
+    <div class="repos">
+        <div *ngIf="showRepositores">
+            <div *ngFor="let repo of repositoriesInfo">
+                <div class="repo">
+                    <a class="title2" href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+                    <p class="text1">{{repo.description}}<span *ngIf="!repo.description" class="muted">Descripción no
+                            disponible</span></p>
+                    <div class="textIcons"><img class="icon2" src="../../../assets/star-icon.png" alt="star-icon"><span
+                            class="text2">{{repo.stargazers_count}}</span></div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="showRepositores == false">
+            <p class="error1">Este usuario no tiene repositorios :C</p>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loading" id="overlay">
+    <div class="loader"></div>
+</div>

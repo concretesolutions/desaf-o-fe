@@ -1,85 +1,87 @@
-# Desafío Front End
+# :grin: ¡Hola!
 
-## Propuesta
+Soy Sebastian Valencia Lasprilla y esta es mi propuesta de aplicación web que cumple con el desafío de utilizar la api de busqueda de usuarios oficial de github.
 
-Implemente una aplicación cliente, visualice la API de GitHub y vea los repositorios de un usuario específico.
+## :bookmark_tabs: Indice
+- 1. ¿Qué desarrollé?
+- 2. Características
+- 3. Ejecutar la aplicación en un ambiente local
+- 4. Generar Build del proyecto
+- 5. Realizar test unitarios
+- 6. Para ayuda futura
 
-Esta aplicación debe funcionar en los navegadores más recientes del mercado.
+## :red_circle: ¿Qué desarrollé?
 
-### API
+Aplicación desplegada: https://github-search-tool-svl.herokuapp.com/
 
-https://developer.github.com/v3/
+Esta es una aplicación desarrollada con:
+- Visual Studio Code
+- Angular
+- Node.js
+- TypeScript
+- Scss
+- Postman
 
-Puntos de Detalles de un usuario:
+Que utiliza apis de GitHub para buscar un usuario y obtener la información publica asociada a su cuenta y sus respectivos repositorios.
+Esta aplicación fue desarrollada para exploradores de escritorio, a pesar de no estar diseñada para otros dispositivos como tablets o celulares, el tamaño y posición de sus elementos están definidos con vh (viewport width) y vw (viewport height), por lo que no se deformaran o reposicionaran de una manera inesperada.
 
-https://api.github.com/users/{username}
+## :large_blue_circle: Características:
 
-Repositorios de un usuario:
+### :small_orange_diamond: Esta aplicación cuenta con un componente Home
 
-https://api.github.com/users/{username}/repos
+<img src="./src/assets/home.jpg" alt="drawing" width="600"/>
 
-### Disposición
+### :small_orange_diamond: Y un componente Details
 
-Home
-<img src="./img/home.png">
+<img src="./src/assets/detail.jpg" alt="drawing" width="600"/>
 
-Details
-<img src="./img/details.png">
+### :small_orange_diamond: El componente Details esta dispuesto para mostrar:
 
-Not Found
-<img src="./img/notfound.png">
+<img src="./src/assets/user.jpg" alt="drawing" width="600"/>
 
-### Navegación
+- Avatar, nombre, nickname, locación, numero de repositorios, cantidad de seguidores, cantidad de seguidos y biografía.
+- Nombre de repositorios, descripción y estrellas de calificación.
+- La busqueda de usuarios usa la Url como parametro de busqueda en donde Usuario = {username} y Url = AppRoute/user/{username}
+- Cuenta con un spinner que se muestra hasta que se obtiene la información, para dar a entender a el usuario los tiempos de carga.
 
-Al buscar un usuario por el login de búsqueda de github, acceda a la página de resultados de la búsqueda con los detalles del usuario, de lo contrario, mostrará la página de Not Found (Layout NotFound).
+### :small_orange_diamond: Un layout para usuario inexistente
 
-### Requisitos
+<img src="./src/assets/userNotFound.jpg" alt="drawing" width="600"/>
 
-- Yo, como usuario, quiero buscar un usuario de GitHub;
-- Yo, como usuario, deseo ver los detalles de aquel usuario que fue buscado (número de seguidores, imagen del avatar, e-mail y bio);
-- Yo, como usuario, en la pantalla de detalhes puedo hacer una nueva busca;
-- Yo, como usuario, deseo ver la lista de repositorios de aquel usuario que fue buscado, ordenada por el número decreciente de estrellas;
-- Yo, como usuario, en la pantalla de detalhes puedo hacer click en nombre de repositorio e ir para pantalla del repositorio en github;
-- Yo, como usuario, en la pantalla de detalhes puedo hacer click en nombre usuariio y imagem del perfil, y ir para pantalla de perfil en github;
+### :small_orange_diamond: Un layout para usuario sin repositorios
 
-**Definición de listo**
+<img src="./src/assets/userNotRepos.jpg" alt="drawing" width="600"/>
 
-El proyecto debe ser implementado de acuerdo con las especificaciones de Zeplin, no es obligatorio usar una estructura, pero recomendamos el React.js, Angular, Vue, o algún FW más actual. El uso de rutas es obligatorio (Ex: / users / {username} / repos).
+### :small_orange_diamond: Y layout para limite de busquedas:
 
-### Criterios de evaluación
+<img src="./src/assets/limit403.jpg" alt="drawing" width="600"/>
 
-Buscamos personas que buscan siempre aprender cosas nuevas y estar actualizadas con el Mercado, disfrutar de buenas prácticas y calidad.
+(Este limite es el error 403 que el api genera cuando se supera el exceso de busquedas en un tiempo determinado)
 
-- Organización del proyecto: La estructura del proyecto, documentación y uso del control de versión;
-- Innovación tecnológica: el uso de nuevas tecnologías, siempre que sean estables;
-- Consistencia: Si se cumplen los requisitos;
-- Buenas prácticas: Si el proyecto sigue buenas prácticas de desarrollo, incluyendo seguridad, optimización, código limpio y reutilizable, etc;
-- Control de Calidad: Si el proyecto tiene calidad asegurada por pruebas unitarias (por ejemplo, Jasmine, Mocha, Chai, Jest, etc).
-- No utilice Frameworks CSS (Boostrap, Material Angular, etc). Queremos entender cuál es su conocimiento con CSS.
-- El uso de preprocesador es muy bienvenido (Sass, Less) y ganará puntos.
-- El layout propuesto es bastante simple, pero tiene puntos que pueden ser reutilizados, reflexione sobre lo que se puede crear como componente. Analice bien el diseño y lo que se repite. Monte su biblioteca de componentes. Sugerencia, un término muy utilizado es webcomponent.
-- Documentación del proyecto, en el README.md debe ser creado y explicadar como se puede levantar la aplicacion en ambiente local, ejecutar pruebas unitarias, etc.
-- Git, el control de versión se analizará también, por lo que los commits, descripciones que se hizo en aquel commit también contará en el análisis.
-- Nomenclatura, el idioma para el código base debe estar en inglés y el idioma dirigido para el usuario en Español.
-- Requerimiento obligatorio: la página de busqueda debe pertenecer a un modulo diferente de la página de detalle.
-- El layout que esta en Zeplin se comparte cuando nuestro Recursos Humanos entran en contacto, y el css que es generado por él no debe ser utilizado. El foco es crear algo de cero y pensando en los webcomponentes reutilizables.
+## :black_circle: Ejecutar la aplicación en un ambiente local
 
-Cada ítem arriba será evaluado y contará puntos en la evaluación final, por lo tanto aplique todo su conocimiento.
+Esta es una aplicación que funciona con Node.Js (https://nodejs.org/es/download/) y Angular (https://cli.angular.io/)
 
-### Entrega
+- Podemos obtener la aplicación clonando el repositorio con Git o descargandola directamente desde este cliente de GitHub.
+- Antes de ejecutar la aplicación debemos asegurarnos de tener las depedencias (node_modules) propias de la aplicación, esto podemos conseguirlo ejecutando el comando `npm install` en la ruta raiz de la aplicación.
+- Con el comando `ng serve` lanzaremos la aplicación en un servidor de desarrollo al que podremos acceder en `http://localhost:4200/`
 
-Siga los siguientes pasos para implementar y enviar este desafío:
-- Haga un **Fork** a este repositorio. Puedes mirar esta guía para mayores informaciones: [Como hacer fork de un repositorio](https://help.github.com/en/articles/fork-a-repo).
-- Implemente el desafío.
-- Después de completar el desafío, realice un **Pull Request** a este repositorio, utilizando la interface de **Github**. [Creando un Pull Request](https://help.github.com/en/articles/creating-a-pull-request-from-a-fork).
-- Si es posible, deja tu repositorio publico para hacer la revisión de código más sencilla.
+## :red_circle: Generar Build del proyecto
 
-Ademas de eso, la aplicación debe alojarse (Heroku, Netlify, Firebase, Plunker, etc.) y cumplir con los requerimientos. Las direcciones URL deben ser agregadas a el README del proyecto.
+Para generar una Build de este proyecto basta con ejecutar el comando `ng build` en la raiz de la app.
 
-### Plazo
+## :large_blue_circle: Realizar test unitarios
 
-El tiempo de entrega de 7 días.
+Para realizar un test unitario debemos ingresar el comando `ng test`.
 
-Si el equipo de Recursos Humanos no te ha contactado, escribe a trabajeconnosotros@concrete.com.br
+## :black_circle: Para ayuda futura
 
-¡Buena suerte!
+No dudes en contactarme a traves de esta cuenta de gitHub, escribiendo algun comentario en el repositorio o escribiendo al siguiente correo: *se.valas@outlook.com*
+
+# :smiley: Muchas Gracias por darle una oportunidad a mi app.
+
+
+
+
+
+
